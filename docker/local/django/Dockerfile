@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION=3.0.2-slim-bullseye
+ARG PYTHON_VERSION=3.10.2-slim-bullseye
 
-FROM python::${PYTHON_VERSION} as python
+FROM python:${PYTHON_VERSION} as python
 
 FROM python as python-build-stage
 ARG BUILD_ENVIRONMENT=local
@@ -31,11 +31,11 @@ COPY --from=python-build-stage /usr/src/app/wheels /wheels/
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* && rm -rf /wheels/
 
 COPY ./docker/local/django/entrypoint /entrypoint
-RUN sed -i 's/\r$//g' /entrypoint
+RUN sed -i 's/\n$//g' /entrypoint
 RUN chmod +x /entrypoint
 
 COPY ./docker/local/django/start /start
-RUN sed -i 's/\r$//g' /start
+RUN sed -i 's/\n$//g' /start
 RUN chmod +x /start
 
 COPY . ${APP_HOME}

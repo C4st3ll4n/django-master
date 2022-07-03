@@ -6,7 +6,7 @@ yes_no(){
 
     local response=
     read -r -p "${arg1} (y/[n]) " response
-    if [["${response}" =~ ^[Yy]$ ]]
+    if ["${response}" =~ ^[Yy]$ ]
     then
         exit 0
     else

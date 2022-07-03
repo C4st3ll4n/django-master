@@ -8,19 +8,19 @@ working_dir="$(dirname ${0})"
 source "${working_dir}/_sourced/constants.sh"
 source "${working_dir}/_sourced/messages
 
-if [[ -z ${1+x} ]]; then
+if [ -z ${1+x} ]; then
    message_error "Backup filename is not specified yet it is a required parameter. Make sure you provide one and try again."
    exit 1
 fi
 backup_filename="${BACKUP_DIR_PATH}/${1}"
-if [[ ! -f "${backup_filename}" ]]; then
+if [ ! -f "${backup_filename}" ]; then
    message_error "No backup with the specified filename found. Check out the 'backups' maintenance script output to see if there is one and try again."
    exit 1
 fi
  
 message_welcome "Restoring the '${POSTGRES_DB}' database from the '${backup_filename}' backup..."
  
-if [[ "${POSTGRES_USER}" == "postgres" ]]; then
+if [ "${POSTGRES_USER}" == "postgres" ]; then
    message_error "Restoring as 'postgres' user is not supported. Assign 'POSTGRES_USER' env with another one and try again."
    exit 1
 fi

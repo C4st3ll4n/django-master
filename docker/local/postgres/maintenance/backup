@@ -10,7 +10,7 @@ source "${working_dir}/_sourced/messages.sh"
 
 message_welcome "Saving database.."
 
-if [[ "${POSTGRES_USER}" == "postgres"]]; then
+if [ "${POSTGRES_USER}" == "postgres" ]; then
     message_error "'postgres' user has no power here !" 
     exit 1
 fi
@@ -21,7 +21,8 @@ export PGUSER="${POSTGRES_USER}"
 export PGDATABASE="${POSTGRES_DB}"
 export PGPASSWORD="${POSTGRES_PASSWORD}"
 
-backup_filename="${BACKUP_FILE_PREFIX}_$(date + '+%y_%m_%dT_%H_%M_%S').sql.gz"
+backup_filename="${BACKUP_FILE_PREFIX}_$(date).sql.gz"
+
 pg_dump | gzip > "${BACKUP_DIR_PATH}/${backup_filename}"
 
 message_success "Backup completed !"
