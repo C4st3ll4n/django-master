@@ -45,12 +45,12 @@ LOCAL_APPS = [
     "core_apps.common",
     "core_apps.users",
     "core_apps.profiles",
-    "core_apps.articles",
-    "core_apps.favorites",
-    "core_apps.reactions",
-    "core_apps.ratings",
-    "core_apps.comments",
-    "core_apps.search",
+    #"core_apps.articles",
+    #"core_apps.favorites",
+    #"core_apps.reactions",
+    #"core_apps.ratings",
+    #"core_apps.comments",
+    #"core_apps.search",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -58,7 +58,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    #"whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -89,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "authors_api.wsgi.application"
+#WSGI_APPLICATION = "authors_api.wsgi.application"
 
 
 DATABASES = {"default": env.db("DATABASE_URL")}
@@ -167,8 +167,9 @@ CORS_URLS_REGEX = r"^/api/.*$"
 
 AUTH_USER_MODEL = "users.User"
 
-CELERY_BROKER_URL = env("CELERY_BROKER")
-CELERY_RESULT_BACKEND = env("CELERY_BACKEND")
+# TODO Change this later
+#CELERY_BROKER_URL = env("CELERY_BROKER")
+#CELERY_RESULT_BACKEND = env("CELERY_BACKEND")
 CELERY_TIMEZONE = "Africa/Kigali"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
