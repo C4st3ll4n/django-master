@@ -8,7 +8,7 @@ def handler_generic_error(exc, context, response):
 
 
 def _handler_not_found_error(exc, context, response):
-    view = context.view
+    view = context.get("view", None)
     if view and hasattr(view, "queryset") and view.queryset is not None:
         status_code = response.status_code
         error_key = view.queryset.model._meta.verbose_name

@@ -9,6 +9,7 @@ User = get_user_model()
 
 
 class Profile(TimeStampedUUIDModel):
+
     class Gender(models.TextChoices):
         MALE = "male", _("male")
         FEMALE = "female", _("female")
