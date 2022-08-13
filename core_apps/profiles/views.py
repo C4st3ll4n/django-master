@@ -10,7 +10,7 @@ from authors_api.settings.local import DEFAULT_FROM_EMAIL
 from .exceptions import CantFollowYourself, NotYourProfile
 from .models import Profile
 from .pagination import ProfilePagination
-from .rederers import ProfileJSONRenderer, ProfilesJSONRenderer
+from .renderers import ProfileJSONRenderer, ProfilesJSONRenderer
 from .serializers import ProfileSerializer, FollowingSerializer, UpdateProfileSerializer
 
 User = get_user_model()
@@ -176,7 +176,7 @@ class FollowUnfollowAPIView(generics.GenericAPIView):
             return Response(formatted_response, status=status_code)
 
         current_user_profile.unfollow(user_profile_instance)
-        
+
         return Response(status=status.HTTP_200_OK, data={
             "status_code": status.HTTP_200_OK,
             "detail": f"You do not follow {specific_user.username} anymore"
