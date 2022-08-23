@@ -31,5 +31,6 @@ sleep 1
 done
 
 >&2 echo "DB is online.. :)"
-
+>&2 python manage.py makemigrations
+>&2 python manage.py makemigrations
 exec "$@"

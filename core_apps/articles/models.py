@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from core_apps.common.models import TimeStampedUUIDModel
 from .read_time_engine import ArticleReadTimeEngine
+from ..ratings.models import Rating
 
 User = get_user_model()
 
