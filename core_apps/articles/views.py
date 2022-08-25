@@ -3,9 +3,9 @@ import logging
 from django.contrib.auth import get_user_model
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, permissions, filters, status
-from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.exceptions import NotFound
+from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from core_apps.articles.exceptions import UpdateArticle
@@ -32,7 +32,7 @@ class ArticleListAPIVIew(generics.ListAPIView):
 class ArticleCreateAPIView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = ArticleCreateSerializer
-    renderer_classes = ArticleJSONRenderer
+    renderer_classes = (ArticleJSONRenderer,)
 
     def create(self, request, *args, **kwargs):
         user = request.user
@@ -116,4 +116,3 @@ class ArticleDeleteAPIView(generics.DestroyAPIView):
             data['failure'] = "Deletion failed"
 
         return Response(data=data)
-

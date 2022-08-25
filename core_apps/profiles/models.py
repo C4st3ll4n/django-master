@@ -21,7 +21,7 @@ class Profile(TimeStampedUUIDModel):
     country = CountryField(verbose_name=_("country"), default="BR", blank=False, null=False)
     city = models.CharField(verbose_name=_("city"), max_length=180, default="São Paulo", blank=False, null=False)
     profile_photo = models.ImageField(verbose_name=_("profile photo"), default="/profile_default.png")
-    twitter_handler = models.CharField(verbose_name=_("twitter handler"), max_length=20, blank=True)
+    twitter_handle = models.CharField(verbose_name=_("twitter handle"), max_length=20, blank=True)
     follows = models.ManyToManyField("self", symmetrical=False, related_name="followed_by", blank=True)
     gender = models.CharField(verbose_name=_("gender"), choices=Gender.choices, default=Gender.OTHER,max_length=30)
 

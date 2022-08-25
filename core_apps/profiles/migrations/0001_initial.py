@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('country', django_countries.fields.CountryField(default='BR', max_length=2, verbose_name='country')),
                 ('city', models.CharField(default='São Paulo', max_length=180, verbose_name='city')),
                 ('profile_photo', models.ImageField(default='/profile_default.png', upload_to='', verbose_name='profile photo')),
-                ('twitter_handler', models.CharField(blank=True, max_length=20, verbose_name='twitter handler')),
+                ('twitter_handle', models.CharField(blank=True, max_length=20, verbose_name='twitter handler')),
                 ('gender', models.CharField(choices=[('male', 'male'), ('female', 'female'), ('other', 'other')], default='other', max_length=30, verbose_name='gender')),
                 ('follows', models.ManyToManyField(blank=True, related_name='followed_by', to='profiles.Profile')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),

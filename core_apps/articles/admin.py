@@ -8,4 +8,4 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display_links = ["pkid", "author"]
 
 
-admin.site.registeR(models.Article, ArticleAdmin)
+admin.site.register(models.Article, ArticleAdmin)

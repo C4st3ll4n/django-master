@@ -17,7 +17,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             "username", "first_name", "last_name", "full_name", "email", "id", "profile_photo", "phone_number",
-            "about_me", "gender", "country", "city", "twitter_handler", "following"
+            "about_me", "gender", "country", "city", "twitter_handle", "following"
         ]
 
     def get_full_name(self, obj):
@@ -56,7 +56,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "gender",
             "country",
             "city",
-            "twitter_handler"
+            "twitter_handle"
         ]
 
 
@@ -74,6 +74,6 @@ class FollowingSerializer(serializers.ModelSerializer):
             "first_name",
             "profile_photo",
             "about_me",
-            "twitter_handler",
+            "twitter_handle",
             "following"
         ]

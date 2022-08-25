@@ -12,12 +12,7 @@ class ArticleJSONRenderer(JSONRenderer):
 
         if errors is not None:
             return super(ArticleJSONRenderer, self).render(data)
-
-        return json.dumps(
-            {
-                "status_code": status_code, "profile": data
-            }
-        )
+        return json.dumps({"status_code": status_code, "article": data})
 
 
 class ArticlesJSONRenderer(JSONRenderer):
@@ -29,9 +24,4 @@ class ArticlesJSONRenderer(JSONRenderer):
 
         if errors is not None:
             return super(ArticlesJSONRenderer, self).render(data)
-
-        return json.dumps(
-            {
-                "status_code": status_code, "profiles": data
-            }
-        )
+        return json.dumps({"status_code": status_code, "articles": data})

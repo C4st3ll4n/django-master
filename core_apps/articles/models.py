@@ -25,7 +25,7 @@ class Tag(TimeStampedUUIDModel):
 class Article(TimeStampedUUIDModel):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"), related_name="articles")
     title = models.CharField(max_length=250, verbose_name=_("title"))
-    slug = AutoSlugField(populate_from="article", always_update=True)
+    slug = AutoSlugField(populate_from="title", always_update=True)
     description = models.CharField(verbose_name=_("description"), max_length=255)
     body = models.TextField(verbose_name=_("article content"))
     banner_image = models.ImageField(
