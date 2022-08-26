@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .custom_tag_field import TagRelatedField
-from .models import ArticleViews, Article
+from .models import Article, ArticleViews
 from ..comments.serializers import CommentListSerializer
 from ..ratings.serializers import RatingSerializer
 
@@ -50,21 +50,21 @@ class ArticleSerializer(serializers.ModelSerializer):
             "email": obj.author.email,
         }
 
-    def get_ratings(self,obj):
+    def get_ratings(self, obj):
         reviews = obj.article_ratings.all()
         serializer = RatingSerializer(reviews, many=True)
         return serializer.data
 
-    def get_num_ratings(self,obj):
+    def get_num_ratings(self, obj):
         num_reviews = obj.article_ratings.all().count()
         return num_reviews
 
-    def get_comments(self,obj):
+    def get_comments(self, obj):
         comments = obj.comments.all()
         serializer = CommentListSerializer(comments, many=True)
         return serializer.data
 
-    def get_num_comments(self,obj):
+    def get_num_comments(self, obj):
         num_comments = obj.comments.all().count()
         return num_comments
 
@@ -102,12 +102,10 @@ class ArticleCreateSerializer(serializers.ModelSerializer):
         model = Article
         exclude = ["updated_at", "pkid"]
 
-
     def get_created_at(self, obj):
         now = obj.created_at
         formatted_date = now.strftime("%d/%m/%Y %H:%M:%S")
         return formatted_date
-
 
     def get_banner_image(self, obj):
         return obj.banner_image.url
@@ -126,4 +124,3 @@ class ArticleUpdateSerializer(serializers.ModelSerializer):
         then = obj.updated_at
         formatted_date = then.strftime("%d/%m/%Y %H:%M:%S")
         return formatted_date
-

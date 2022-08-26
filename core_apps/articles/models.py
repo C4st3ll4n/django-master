@@ -1,12 +1,13 @@
+from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.db import models
-from autoslug import AutoSlugField
 from django.db.models import Avg
 from django.utils.translation import gettext_lazy as _
 
 from core_apps.common.models import TimeStampedUUIDModel
-from .read_time_engine import ArticleReadTimeEngine
+
 from ..ratings.models import Rating
+from .read_time_engine import ArticleReadTimeEngine
 
 User = get_user_model()
 
@@ -66,4 +67,3 @@ class ArticleViews(TimeStampedUUIDModel):
     class Meta:
         verbose_name = "Total views on Article"
         verbose_name_plural = "Total Article Views"
-

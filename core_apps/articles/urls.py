@@ -1,5 +1,11 @@
-from django.urls import path, include
-from .views import ArticleCreateAPIView, ArticleDeleteAPIView, ArticleDetailAPIView, ArticleListAPIVIew
+from django.urls import path
+
+from .views import (
+    ArticleCreateAPIView,
+    ArticleDeleteAPIView,
+    ArticleDetailAPIView,
+    ArticleListAPIVIew,
+)
 
 urlpatterns = [
     path("all/", ArticleListAPIVIew.as_view(), name="all-articles"),

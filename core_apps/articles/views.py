@@ -2,7 +2,7 @@ import logging
 
 from django.contrib.auth import get_user_model
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, permissions, filters, status
+from rest_framework import filters, generics, permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
@@ -12,7 +12,11 @@ from core_apps.articles.exceptions import UpdateArticle
 from core_apps.articles.models import Article, ArticleViews
 from core_apps.articles.pagination import ArticlePagination
 from core_apps.articles.renderers import ArticleJSONRenderer
-from core_apps.articles.serializers import ArticleSerializer, ArticleCreateSerializer, ArticleUpdateSerializer
+from core_apps.articles.serializers import (
+    ArticleCreateSerializer,
+    ArticleSerializer,
+    ArticleUpdateSerializer,
+)
 
 User = get_user_model()
 

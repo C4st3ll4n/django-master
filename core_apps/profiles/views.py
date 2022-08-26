@@ -7,11 +7,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from authors_api.settings.local import DEFAULT_FROM_EMAIL
+
 from .exceptions import CantFollowYourself, NotYourProfile
 from .models import Profile
 from .pagination import ProfilePagination
 from .renderers import ProfileJSONRenderer, ProfilesJSONRenderer
-from .serializers import ProfileSerializer, FollowingSerializer, UpdateProfileSerializer
+from .serializers import FollowingSerializer, ProfileSerializer, UpdateProfileSerializer
 
 User = get_user_model()
 

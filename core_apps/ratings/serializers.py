@@ -16,4 +16,3 @@ class RatingSerializer(serializers.ModelSerializer):
 
     def get_article(self, obj):
         return obj.article.title
-

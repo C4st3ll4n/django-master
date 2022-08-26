@@ -53,6 +53,6 @@ class ReactionAPIVIew(APIView):
 
             status_code = status.HTTP_200_OK
         except Reaction.DoesNotExist:
-            response, status_code = self.set_reaction(article,user,reaction)
+            response, status_code = self.set_reaction(article, user, reaction)
 
         return Response(response, status_code)

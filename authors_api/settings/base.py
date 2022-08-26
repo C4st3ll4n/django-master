@@ -9,10 +9,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 
 APPS_DIR = ROOT_DIR / "core_apps"
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", False)
-
 
 # Application definition
 
@@ -25,7 +23,6 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.admin",
 ]
-
 
 THIRD_PARTY_APPS = [
     "rest_framework",
@@ -89,8 +86,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = "authors_api.wsgi.application"
-
+WSGI_APPLICATION = "authors_api.wsgi.application"
 
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -101,7 +97,6 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
 ]
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -120,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -143,7 +137,6 @@ ADMINS = [("""Pedro Henrique""", "p13dr0h@gmail.com")]
 
 MANAGERS = ADMINS
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -161,7 +154,6 @@ MEDIA_ROOT = str(ROOT_DIR / "mediafiles")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 
 CORS_URLS_REGEX = r"^/api/.*$"
 
@@ -184,7 +176,6 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.JSONRenderer",
     )
 }
-
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": (
@@ -234,7 +225,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(name)-12s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {

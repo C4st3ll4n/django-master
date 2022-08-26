@@ -1,5 +1,6 @@
-from django.urls import path, include
-from .views import CommentUpdateDeleteAPIVIew, CommentAPIView
+from django.urls import path
+
+from .views import CommentAPIView, CommentUpdateDeleteAPIVIew
 
 urlpatterns = [
     path("<slug:slug>/comment/", CommentAPIView.as_view(), name="comments"),

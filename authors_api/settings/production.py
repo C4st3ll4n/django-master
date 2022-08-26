@@ -1,4 +1,3 @@
-from .base import *
 from .base import env
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -52,7 +51,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DOMAIN = env("DOMAIN")
 
-
 # LOGGING
 LOGGING = {
     "version": 1,
@@ -61,7 +59,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {

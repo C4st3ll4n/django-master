@@ -3,6 +3,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 
 from core_apps.articles.models import Article
+
 from .models import Comments
 from .serializers import CommentSerializer
 
@@ -77,5 +78,3 @@ class CommentUpdateDeleteAPIVIew(generics.GenericAPIView):
         return Response({
             "message": "Comment deleted successfully",
         }, status=status.HTTP_200_OK)
-
-

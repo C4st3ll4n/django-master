@@ -19,18 +19,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = [
-            "id", "username", "email", "first_name", "last_name", "full_name", "gender", "phone_number",
-            "profile_photo", "country", "city"
-        ]
+        fields = ["id", "username", "email", "first_name", "last_name", "full_name", "gender", "phone_number",
+                  "profile_photo", "country", "city"]
 
-    def get_first_name(self):
+    def get_first_name(self, obj):
         return obj.first_name.title()
 
-    def get_last_name(self):
+    def get_last_name(self, obj):
         return obj.last_name.title()
 
-    def get_full_name(self):
+    def get_full_name(self, obj):
         first_name = obj.user.first_name.tittle
         last_name = obj.user.first_name.tittle
         return f"{first_name} {last_name}"
@@ -45,6 +43,4 @@ class UserSerializer(serializers.ModelSerializer):
 class CreateUserSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = [
-            "id", "username", "email", "first_name", "last_name", "password"
-        ]
+        fields = ["id", "username", "email", "first_name", "last_name", "password"]

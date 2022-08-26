@@ -3,10 +3,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from core_apps.articles.models import Article
+
+from ..articles.serializers import ArticleCreateSerializer
 from .exceptions import AlreadyFavorited
 from .models import Favorite
 from .serializers import FavoriteSerializer
-from ..articles.serializers import ArticleCreateSerializer
 
 
 class FavoriteAPIVIew(generics.CreateAPIView):
@@ -52,5 +53,3 @@ class ListUserFavoriteArticlesAPIView(APIView):
         }
 
         return Response(data=my_favs, status=status.HTTP_200_OK)
-
-

@@ -12,7 +12,7 @@ def _handler_not_found_error(exc, context, response):
     if view and hasattr(view, "queryset") and view.queryset is not None:
         status_code = response.status_code
         error_key = view.queryset.model._meta.verbose_name
-        response.data = {"status_code": status_code, "errors": {error_key:response.data['detail']}}
+        response.data = {"status_code": status_code, "errors": {error_key: response.data['detail']}}
     else:
         response = handler_generic_error(exc, context, response)
 
@@ -20,10 +20,7 @@ def _handler_not_found_error(exc, context, response):
 def common_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
-    handlers = {
-        "NotFound": _handler_not_found_error,
-        "ValidationError": handler_generic_error,
-    }
+    handlers = {"NotFound": _handler_not_found_error, "ValidationError": handler_generic_error, }
 
     exception_class = exc.__class__.__name__
 

@@ -1,5 +1,6 @@
-from django.urls import path, include
-from .views import ListUserFavoriteArticlesAPIView, FavoriteAPIVIew
+from django.urls import path
+
+from .views import FavoriteAPIVIew, ListUserFavoriteArticlesAPIView
 
 urlpatterns = [
     path("articles/me/", ListUserFavoriteArticlesAPIView.as_view(), name="my-favorites"),

@@ -2,7 +2,7 @@ from rest_framework import permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
-from .exceptions import CantRateYourArticle, AlreadyRated
+from .exceptions import AlreadyRated, CantRateYourArticle
 from .models import Rating
 from ..articles.models import Article
 
@@ -26,7 +26,7 @@ def create_article_rating_view(request, article_id):
         }
         return Response(formatted_response, status=status.HTTP_400_BAD_REQUEST)
     else:
-        rating = Rating.objects.create(article=article, rated_by=author, value=data["value"], review=data["review"])
+        Rating.objects.create(article=article, rated_by=author, value=data["value"], review=data["review"])
         return Response({
             "success": "Rating has been added"
         }, status=status.HTTP_201_CREATED)
