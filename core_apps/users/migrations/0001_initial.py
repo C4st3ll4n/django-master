@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
     operations = [
@@ -23,7 +22,7 @@ class Migration(migrations.Migration):
                 ('pkid', models.BigAutoField(editable=False, primary_key=True, serialize=False)),
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
                 ('username', models.CharField(db_index=True, max_length=255, unique=True, verbose_name='username')),
-                ('first_name', models.CharField(max_length=100, verbose_name='first name')),
+                ('first_name', models.CharField(max_length=150, verbose_name='first name')),
                 ('last_name', models.CharField(max_length=100, verbose_name='last name')),
                 ('email', models.EmailField(db_index=True, max_length=254, unique=True, verbose_name='email address')),
                 ('is_staff', models.BooleanField(default=False)),
