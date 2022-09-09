@@ -31,21 +31,21 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_FROM_EMAIL = env(
     "DJANGO_DEFAULT_FROM_EMAIL",
-    default="Authors Haven Support <support@apiimperfect.site>",
+    default="Bem Lidos Suporte <suporte@bemlidos.com.br>",
 )
 
-SITE_NAME = "Authors Haven"
+SITE_NAME = "Bem Lidos"
 
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
 
 EMAIL_SUBJECT_PREFIX = env(
     "DJANGO_EMAIL_SUBJECT_PREFIX",
-    default="[Authors Haven]",
+    default="[Bem Lidos]",
 )
 
 EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
 EMAIL_HOST = "smtp.mailgun.org"
-EMAIL_HOST_USER = "postmaster@mg.apiimperfect.site"
+EMAIL_HOST_USER = "postmaster@sandbox1b4677c6576949edbe985de3dcbd0c06.mailgun.org	"
 EMAIL_HOST_PASSWORD = env("SMTP_MAILGUN_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

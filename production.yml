@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  api: &api
+    build:
+      context: .
+      dockerfile: ./docker/production/django/dockerfile
+    command: /start
+    image: authors-haven-api
+    volumes:
+      - .:/app
+      - .static:/app/staticfiles
+      - .media:/app/mediafile
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:6-alpine
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    env_file:
+      - ./.envs/.production/.django
+
+  celery_worker:
+    <<: *api
+    image: authors-haven-celeryworker
+    command: /start-celeryworker
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+  flower:
+    <<: *api
+    image: authors-haven-flower
+    command: /start-flower
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+

@@ -1,3 +1,6 @@
+DJANGO_SETTINGS_MODULE=authors_api.settings.local
+DJANGO_SECRET_KEY=%d@ttp$^wh=+!d+e@6*^n9!o00r3_qrucq6$8o#v5c$wlnwq0$
+
 CELERY_BROKER=redis://redis:6379/0
 CELERY_BACKEND=redis://redis:6379/0
 

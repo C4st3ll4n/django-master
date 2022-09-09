@@ -32,17 +32,4 @@ done
 
 >&2 echo "DB is online.. :)"
 >&2 python manage.py makemigrations
-
-rabbitmq_ready(){
-  echo "Wait to rabbitmq be online.. :("
-  while ! nc -z rabbitmq 562; do
-    sleep 1
-  done
-
-  echo "Rabbitmq is alive !"
-
-}
-
-rabbitmq_ready
-
 exec "$@"
